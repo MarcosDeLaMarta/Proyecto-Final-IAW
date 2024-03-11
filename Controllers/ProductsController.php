@@ -1,5 +1,4 @@
 <?php
-
 if(!isset($_SESSION['cart'])){
     $_SESSION['cart']=array();
   }
@@ -15,8 +14,8 @@ class ComicsController {
     }
 
     public function addToCart(){
-        if (isset($_GET['id_comic'])){
-            array_push($_SESSION['cart'], $_GET['id_comic']);   
+        if (isset($_GET['id'])){
+            array_push($_SESSION['cart'], $_GET['id']);   
             $comicsDAO = new ComicsDAO();
             $comics = $comicsDAO->getAllComics();
             $comicsDAO = null;
@@ -28,7 +27,7 @@ class ComicsController {
         $comicsDAO = new ComicsDAO(); 
         $arrayCarrito = array();
     
-        foreach ($_SESSION['carrito'] as $posicion => $id) {
+        foreach ($_SESSION['cart'] as $posicion => $id) {
             $comic = $comicsDAO->getComicById($id); 
             array_push($arrayCarrito, $comic);
         }
@@ -36,10 +35,7 @@ class ComicsController {
         View::show("carrito", ['comics' => $arrayCarrito]);
 
     }
-    
-    
-
-    
+      
 }
 
     // http://localhost/index.php?action=showAllComics&controller=ComicsController
