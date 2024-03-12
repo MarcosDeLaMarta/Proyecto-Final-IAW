@@ -35,7 +35,20 @@ class ComicsController {
         View::show("carrito", ['comics' => $arrayCarrito]);
 
     }
-      
+    public function eliminarDelCarrito() {
+        if (isset($_GET['id'])) {
+            
+            $idComic = $_GET['id'];
+    
+            // Busca la posición del cómic en el carrito
+            $posicion = array_search($idComic, $_SESSION['cart']);
+    
+            if ($posicion !== false) {
+                unset($_SESSION['cart'][$posicion]);
+            }
+        }
+        $this->verCarrito();
+    }
 }
 
     // http://localhost/index.php?action=showAllComics&controller=ComicsController

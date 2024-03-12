@@ -27,7 +27,7 @@ include_once("views/header.php");
                       <td><?php echo $comic['precio']; ?> €</td>
                       <td>1</td> 
                       <td>
-                          <a href="#" class="btn btn-danger">Eliminar</a>
+                          <a href="index.php?action=eliminarDelCarrito&controller=ComicsController&id=<?php echo $comic['id_comic']; ?>" class="btn btn-danger">Eliminar</a>
                       </td>
                   </tr>
               <?php endforeach; ?>

@@ -1,18 +1,9 @@
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Inicia Sesión</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
+            
+                <div class="container-sm mt-5 mb-4">
                     <div class="row">
                         <div class="col">
                             <div class="text-center">
-                                <img src="img/logo.png" width="48" alt="">
+                                <img src="views/img/logo.png" width="48" alt="">
                             </div>
                             <h2 class="fw-bold text-center py-5">Bienvenido</h2>
 
@@ -34,6 +25,9 @@
                                         if(isset($data) && isset($data['contrasena'])){
                                             echo "<div class='alert alert-danger'>".$data['contrasena']."</div>";
                                         }
+                                        if(isset($data) && isset($data['general'])){
+                                            echo "<div class='alert alert-danger'>".$data['general']."</div>";
+                                          }
                                     ?>
                                 </div>
                                 <div class="mb-4 form-check">
@@ -42,11 +36,11 @@
                                 </div>
                                 <p class="error" id="error"></p>
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                                <button type="submit" name="iniciarsesion" class="btn btn-primary">Iniciar Sesión</button>
                                 </div>
                             </form>
                             <div class="container w-100 my-5">
-                                <div class="row text-center">
+                                <div class="row text-center mb-2">
                                     <div class="col-12">Iniciar Sesión</div>
                                 </div>
                                 <div class="row">
@@ -71,8 +65,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+            
+
 

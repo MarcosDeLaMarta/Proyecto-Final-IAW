@@ -1,5 +1,5 @@
 <?php
-include('db/db.php');
+include_once('db/db.php');
 
 class ComicsDAO {
 

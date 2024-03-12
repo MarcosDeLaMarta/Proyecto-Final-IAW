@@ -1,6 +1,7 @@
 <?php
 
-include_once("views/view.php");
+include_once('db/db.php');
+include_once ("models/productosDAO.php");
 
 class UserController {
 
@@ -31,20 +32,23 @@ class UserController {
                 
                 if (empty($usuario)) {
                     $errores['general'] = "El usuario no está registrado.";
-                    View::show("login", $errores);
+                    View::show("login", ['errores' => $errores]);
                 } else {
                     $_SESSION['usuario'] = $_POST['usuario'];
                     
                     // Redirección basada en el rol del usuario
                     if ($usuario['rol'] == 1) {
-                        header("Location: index.php?action=showAllComics&controller=ComicsController");
+                        $comicsDAO = new ComicsDAO();
+                        $comics = $comicsDAO->getAllComics();
+                        $comicsDAO = null;
+                        View::show("mostrarProductos", ['comics' => $comics]);
                     } elseif ($usuario['rol'] == 2) {
                         // Redirige a la vista de administrador
                         header("Location: index.php?action=showAdminView&controller=AdminController");
                     }
                 }
             } else {
-                View::show("login", $errores);
+                View::show("login", ['errores' => $errores]);
             }
         }
     }
