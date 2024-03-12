@@ -29,6 +29,17 @@ class UsuariosDAO {
         return $stmt->fetch();
     }
 
+    public function getUserByUsernameAndPassword($username, $password) {
+        $stmt = $this->db_con->prepare("SELECT * FROM usuarios WHERE nombre_usuario = :username AND password_usuario = :password");
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+
     public function insertUsuario($nombre_usuario, $password_usuario, $correo_electronico){
     
         $stmt = $this->db_con->prepare("INSERT INTO usuarios (nombre_usuario, password_usuario, correo_electronico) VALUES (:nombre_usuario, :password_usuario, :correo_electronico)");

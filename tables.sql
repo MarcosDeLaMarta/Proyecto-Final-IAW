@@ -28,9 +28,10 @@ CREATE TABLE usuarios (
     nombre_usuario VARCHAR(50) NOT NULL,
     password_usuario VARCHAR(255) NOT NULL,
     correo_electronico VARCHAR(255) NOT NULL,
-    
+    rol INT NOT NULL CHECK (rol IN (1, 2)),
     UNIQUE KEY (nombre_usuario) 
 ) ENGINE=InnoDB;
+
 
 CREATE TABLE pedidos (
     id_pedido INT PRIMARY KEY AUTO_INCREMENT,
@@ -50,7 +51,6 @@ CREATE TABLE detalles_pedido (
     FOREIGN KEY (id_comic) REFERENCES comics(id_comic)
     
 ) ENGINE=InnoDB;
-
 
 
 -- Insertar datos en tabla comicsç
@@ -92,3 +92,11 @@ VALUES ('NII-CHAN', 'HARADA', 9.45, 'manga/nilchan.jpg', 'Manga', 'Libro de hist
 
 INSERT INTO comics (titulo, autor, precio, imagen, genero, descripcion)
 VALUES ('TOKYO REVENGERS # 04', 'KEN WAKUI', 16.60, 'manga/tokyo.jpg', 'Manga', 'Libro de historietas de estilo manga y de género shonen (orientado al público juvenil) encuadernado en rústica de 400 páginas interiores en blanco y negro más cubiertas con sobrecubierta y sentido de lectura oriental. DA COMIENZO LA BATALLA ENTRE LA TOMAN Y LA WALHALLA: EL HALLOWEEN SANGRIENTO!.');
+
+
+
+INSERT INTO usuarios (nombre_usuario, password_usuario, correo_electronico, rol)
+VALUES ('marcos', '1234', 'usuario1@example.com', 1);
+
+INSERT INTO usuarios (nombre_usuario, password_usuario, correo_electronico, rol)
+VALUES ('admin', '1234', 'usuario2@example.com', 2);

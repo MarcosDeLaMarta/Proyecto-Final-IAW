@@ -1,6 +1,7 @@
 <?php
 include_once ("views/header.php");
 include_once ("Controllers/ProductsController.php");
+include_once ("Controllers/UserController.php");
 
 //Punto de entrada a la aplicación. Si no se recibe parámetro action y controller en la url
 //se muestra la página de inicio (texto HTML).
@@ -66,5 +67,5 @@ else
     
 
   require_once ("views/footer.php");
-
+  require_once("views/login.php")
 ?>
