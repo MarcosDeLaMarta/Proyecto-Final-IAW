@@ -10,7 +10,7 @@
         <?php foreach ($data['comics'] as $comic) : ?>
         <?php $enlaceid='<a href="index.php?action=addToCart&controller=ComicsController&id='.$comic['id_comic'].'" class="btn btn-success"> <i class="bi bi-cart-check"></i> Añadir a la cesta </a>'?>
             <div class="card col-xs-12 col-3 my-2" style="width: 18rem;">
-                <a href="<?php echo 'views/img/'.$comic['imagen']; ?>">
+                <a href="index.php?action=verDetalleProducto&controller=ComicsController&id=<?php echo $comic['id_comic']; ?>">
                     <img src="<?php echo 'views/img/'.$comic['imagen']; ?>" class="card-img-top pt-2" alt="...">
                 </a>
                 <div class="card-body">

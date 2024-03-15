@@ -43,12 +43,15 @@ class UserController {
                         $comicsDAO = null;
                         View::show("mostrarProductos", ['comics' => $comics]);
                     } elseif ($usuario['rol'] == 2) {
-                        // Redirige a la vista de administrador
-                        header("Location: index.php?action=showAdminView&controller=AdminController");
+                        $comicsDAO = new ComicsDAO();
+                        $comics = $comicsDAO->getAllComics();
+                        $comicsDAO = null;
+                        View::show("admin", ['comics' => $comics]);
                     }
                 }
             } else {
-                View::show("login", ['errores' => $errores]);
+                View::show("login", $errores);
+                
             }
         }
     }

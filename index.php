@@ -67,5 +67,4 @@ else
     
 
   require_once ("views/footer.php");
-  require_once("views/login.php")
 ?>
