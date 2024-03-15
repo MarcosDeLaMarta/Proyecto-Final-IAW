@@ -24,7 +24,13 @@ class ComicsController {
             View::show("mostrarProductos", ['comics' => $comics]);
         }
     }
+    public function verAdmin() {
+        $comicsDAO = new ComicsDAO();
+        $comics = $comicsDAO->getAllComics();
+        $comicsDAO = null;
+        View::show("admin", ['comics' => $comics]);
 
+    }
     public function verCarrito() {
         $comicsDAO = new ComicsDAO(); 
         $arrayCarrito = array();

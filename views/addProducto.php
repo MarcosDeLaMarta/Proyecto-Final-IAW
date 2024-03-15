@@ -1,9 +1,13 @@
 <?php include_once("views/header.php"); ?>
 
 <div class="container mt-5">
+    <div class="position-relative">
+        <a href="index.php?action=verAdmin&controller=ComicsController" class="nav-link py-3 px-0 px-lg-3 rounded"><i class="bi bi-arrow-return-left fs-4"></i></a>
+    </div>
     <div class="text-center m-5">
         <h2>Añadir Nuevo Cómic</h2>
     </div>
+    
     <form action="index.php?action=addComic&controller=ComicsController" method="post">
         <div class="mb-3">
             <label for="titulo" class="form-label">Título:</label>
